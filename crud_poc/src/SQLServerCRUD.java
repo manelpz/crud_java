@@ -4,12 +4,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MySQLCRUD {
+public class SQLServerCRUD {
+private static final String JDBC_URL =
+    "jdbc:sqlserver://iberopoo.database.windows.net:1433;" +
+    "database=atm;" +
+    "encrypt=true;" +
+    "trustServerCertificate=false;" +
+    "hostNameInCertificate=*.database.windows.net;" +
+    "loginTimeout=30;";
 
-
-    private static final String JDBC_URL = "jdbc:mysql://sql3.freesqldatabase.com:3306/sql3836841?useSSL=false&serverTimezone=UTC";
-    private static final String USERNAME = "sql3836841";
-    private static final String PASSWORD = "RQ9BwSZXeJ";
+private static final String USERNAME = "adminibero@iberopoo";
+private static final String PASSWORD = "3a8ba5cc#";
 
     public void readCustomer() {
 
@@ -23,11 +28,13 @@ public class MySQLCRUD {
 
             String querySelect = "SELECT * FROM Customers";
 
-            PreparedStatement var3 = var1.prepareStatement(querySelect);
+            PreparedStatement var3 =
+                var1.prepareStatement(querySelect);
 
             ResultSet var4 = var3.executeQuery();
 
             while (var4.next()) {
+
                 System.out.println(
                     var4.getInt("id") + " " +
                     var4.getString("firstName") + " " +
@@ -38,8 +45,9 @@ public class MySQLCRUD {
 
         } catch (SQLException e) {
 
-            System.out.println("Hubo un error en la conexión: " + e);
-
+            System.out.println(
+                "Hubo un error en la conexión: " + e
+            );
         }
     }
 }
