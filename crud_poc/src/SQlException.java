@@ -1,0 +1,6 @@
+/**
+ * SQlException
+ */
+public class SQlException {
+
+}

@@ -3,7 +3,10 @@ public class App {
         
 
         
+        MySQLCRUD conn = new MySQLCRUD();
 
+        System.out.println("\n===== leer clientes =====");
+        conn.readCustomer();
 
 
     }
